@@ -38,6 +38,6 @@ sockets.on('connection', (socket) => {
     })
 })
 
-server.listen(3000, () => {
-    console.log(`> Server listening on port: 3000`)
+server.listen(process.env.PORT || 3333, () => {
+    console.log(`> Server listening on port: 3333`)
 })
