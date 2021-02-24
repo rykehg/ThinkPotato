@@ -2,7 +2,7 @@
     <head>
         <meta charset="utf-8">
         <title>Meu Primeiro Jogo Multiplayer</title>
-
+        <link rel="stylesheet" href="style.css">
         <style>
             #screen {
                 border: 10px solid #CCC;
@@ -16,7 +16,18 @@
         <script src="/socket.io/socket.io.js"></script>
     </head>
     <body>
-        <canvas id="screen" width="10" height="10"></canvas>
+        <!-- ul.pages>li.canvas.page+li.login.page>div.form>h3.title+input.usernameInput-->
+        <ul class="pages">
+            <li class="canvas page">
+                <canvas class="canvas" id="screen" width="10" height="10"></canvas>
+            </li>
+            <li class="login page">
+                <div class="form">
+                    <h3 class="title">Nickname?</h3>
+                    <input type="text" class="usernameInput" maxlength="14"/>
+                </div>
+            </li>
+        </ul>
 
         <script type="module">
             import createGame from './game.js'
