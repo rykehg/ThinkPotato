@@ -1,27 +1,25 @@
 export default function loginGame() {
-  const $usernameInput = $('.usernameInput'); 
+  const [$usernameInput] = document.getElementsByClassName('usernameInput'); 
 
-  const [$loginPage] = document.getElementsByClassName('login');
-  const $canvasPage = document.getElementsByClassName('.chat.page');  
+  const [$loginPage] = document.getElementsByClassName('login page');
+  const [$canvasPage] = document.getElementsByClassName('canvas page');  
 
   const socket = io();
   // Prompt for setting a username
   let username;
   let connected = false;
-  let typing = false;
-  let lastTypingTime;
   let $currentInput = $usernameInput.focus();
 
-    // Sets the client's username
-  const setUsername = () => {
-    username = cleanInput($usernameInput.val().trim());
+  // Sets the client's username
+  function setUsername () {
+    username = $usernameInput.val().trim();
 
     // If the username is valid
     if (username) {
       $loginPage.fadeOut();
       $canvasPage.show();
       $loginPage.off('click');
-      $currentInput = $inputMessage.focus();
+      $currentInput = $canvasPage.focus();
 
       // Tell the server your username
       socket.emit('add user', username);
@@ -38,4 +36,8 @@ export default function loginGame() {
       });
       addParticipantsMessage(data);
     });
+
+    return {
+      setUsername
+    }
 }

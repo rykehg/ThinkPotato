@@ -24,7 +24,8 @@
             <li class="login page">
                 <div class="form">
                     <h3 class="title">Nickname?</h3>
-                    <input type="text" class="usernameInput" maxlength="14"/>
+                    <input type="text" class="usernameInput" maxlength="14" placeholder="Type here..."/>
+                    <button id="btnUsernameInput" onclick="gameLogin()">Ok</button>
                 </div>
             </li>
         </ul>
@@ -33,6 +34,7 @@
             import createGame from './game.js'
             import createKeyboardListener from './keyboard-listener.js'
             import renderScreen from './render-screen.js'
+            import gameLogin from './login.js'
             
             const game = createGame()
             const keyboardListener = createKeyboardListener(document)
@@ -88,6 +90,40 @@
                 console.log(`Receiving ${command.type} -> ${command.fruitId}`)
                 game.removeFruit(command)
             })
+
+            //Login
+            function gameLogin() {
+
+                const [$usernameInput] = document.getElementsByClassName('usernameInput'); 
+
+                const [$loginPage] = document.getElementsByClassName('login page');
+                const [$canvasPage] = document.getElementsByClassName('canvas page');  
+
+                // Prompt for setting a username
+                let username;
+                let connected = false;
+                username = $usernameInput.val().trim();
+                // If the username is valid
+                if (username) {
+                    $loginPage.fadeOut();
+                    $canvasPage.show();
+                    $loginPage.off('click');
+                    $currentInput = $canvasPage.focus();
+                    socket.emit('add user', username);
+                }            
+            
+            }
+
+            // Whenever the server emits 'login', log the login message
+            socket.on('login', (data) => {
+                connected = true;
+                // Display the welcome message
+                const message = 'Welcome to Socket.IO Chat – ';
+                log(message, {
+                prepend: true
+                });
+                addParticipantsMessage(data);
+            });
         </script>
     </body>
 </html>

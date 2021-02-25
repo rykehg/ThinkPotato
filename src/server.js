@@ -17,29 +17,34 @@ game.subscribe((command) => {
     socket.emit(command.type, command)
 })
 
-// when the client emits 'add user', this listens and executes
-socket.on('add user', (username) => {
-    if (addedUser) return;
-
-    // we store the username in the socket session for this client
-    socket.username = username;
-    ++numUsers;
-    addedUser = true;
-    socket.emit('login', {
-        numUsers: numUsers
-    });
-    // echo globally (all clients) that a person has connected
-    socket.broadcast.emit('user joined', {
-        username: socket.username,
-        numUsers: numUsers
-    });
-});
+let numUsers = 0;
 
 socket.on('connection', (socket) => {
-    const playerId = socket.id
-    console.log(`> Player connected: ${playerId}`)
+    let addedUser = false;
 
-    game.addPlayer({ playerId: playerId })
+    // when the client emits 'add user', this listens and executes
+    socket.on('add user', (username) => {
+        if (addedUser) return;
+
+        // we store the username in the socket session for this client
+        if(username){
+            socket.username = username;
+            ++numUsers;
+            addedUser = true;
+            socket.emit('login', {
+                numUsers: numUsers
+            });
+            const playerId = socket.id
+            console.log(`> Player connected: ${playerId}`)
+        
+            game.addPlayer({ playerId: playerId, playerName: username })
+        }
+        // echo globally (all clients) that a person has connected
+        socket.broadcast.emit('user joined', {
+            username: socket.username,
+            numUsers: numUsers
+        });
+    });
 
     socket.emit('setup', game.state)
 
