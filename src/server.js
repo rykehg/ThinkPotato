@@ -5,7 +5,7 @@ import socketio from 'socket.io'
 
 const app = express()
 const server = http.createServer(app)
-const sockets = socketio(server)
+const socket = socketio(server)
 
 app.use(express.static('public'))
 
@@ -14,10 +14,28 @@ game.start()
 
 game.subscribe((command) => {
     console.log(`> Emitting ${command.type}`)
-    sockets.emit(command.type, command)
+    socket.emit(command.type, command)
 })
 
-sockets.on('connection', (socket) => {
+// when the client emits 'add user', this listens and executes
+socket.on('add user', (username) => {
+    if (addedUser) return;
+
+    // we store the username in the socket session for this client
+    socket.username = username;
+    ++numUsers;
+    addedUser = true;
+    socket.emit('login', {
+        numUsers: numUsers
+    });
+    // echo globally (all clients) that a person has connected
+    socket.broadcast.emit('user joined', {
+        username: socket.username,
+        numUsers: numUsers
+    });
+});
+
+socket.on('connection', (socket) => {
     const playerId = socket.id
     console.log(`> Player connected: ${playerId}`)
 
