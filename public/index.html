@@ -25,7 +25,7 @@
                 <div class="form">
                     <h3 class="title">Nickname?</h3>
                     <input type="text" class="usernameInput" maxlength="14" placeholder="Type here..."/>
-                    <button id="btnUsernameInput" onclick="gameLogin()">Ok</button>
+                    <button type="button"id="btnUsernameInput">Ok</button>
                 </div>
             </li>
         </ul>
@@ -34,13 +34,38 @@
             import createGame from './game.js'
             import createKeyboardListener from './keyboard-listener.js'
             import renderScreen from './render-screen.js'
-            import gameLogin from './login.js'
             
             const game = createGame()
             const keyboardListener = createKeyboardListener(document)
-            
 
             const socket = io()
+
+            //Login
+            function gameLogin() {
+                const [$usernameInput] = document.getElementsByClassName('usernameInput'); 
+                debugger
+                const [$loginPage] = document.getElementsByClassName('login page');
+                const [$canvasPage] = document.getElementsByClassName('canvas page');  
+                console.log("gameLogin : " + "usernameInput: " + $usernameInput + "login page :" + $loginPage + "canvas page: " + $canvasPage)
+                // Prompt for setting a username
+                let username;
+                let connected = false;
+                username = $usernameInput.value;
+                console.log("username: " + username)
+                // If the username is valid
+                if (username) {
+                    console.log("inside if")
+                    $loginPage.hidden = true;
+                    $canvasPage.hidden = false;
+                    //$loginPage.off('click');
+                    socket.emit('add user', username);
+                }
+            }
+
+            /*When use <script type="module">, a separate scope is created to prevent name collisions.
+                So onclick wont work unless function is global or 
+                we add addEventListener to bind handler*/
+            document.querySelector('#btnUsernameInput').addEventListener('click', gameLogin)
 
             socket.on('connect', () => {
                 const playerId = socket.id
@@ -91,28 +116,7 @@
                 game.removeFruit(command)
             })
 
-            //Login
-            function gameLogin() {
 
-                const [$usernameInput] = document.getElementsByClassName('usernameInput'); 
-
-                const [$loginPage] = document.getElementsByClassName('login page');
-                const [$canvasPage] = document.getElementsByClassName('canvas page');  
-
-                // Prompt for setting a username
-                let username;
-                let connected = false;
-                username = $usernameInput.val().trim();
-                // If the username is valid
-                if (username) {
-                    $loginPage.fadeOut();
-                    $canvasPage.show();
-                    $loginPage.off('click');
-                    $currentInput = $canvasPage.focus();
-                    socket.emit('add user', username);
-                }            
-            
-            }
 
             // Whenever the server emits 'login', log the login message
             socket.on('login', (data) => {

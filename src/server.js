@@ -21,7 +21,8 @@ let numUsers = 0;
 
 socket.on('connection', (socket) => {
     let addedUser = false;
-
+    
+    const playerId = socket.id
     // when the client emits 'add user', this listens and executes
     socket.on('add user', (username) => {
         if (addedUser) return;
@@ -34,7 +35,6 @@ socket.on('connection', (socket) => {
             socket.emit('login', {
                 numUsers: numUsers
             });
-            const playerId = socket.id
             console.log(`> Player connected: ${playerId}`)
         
             game.addPlayer({ playerId: playerId, playerName: username })
