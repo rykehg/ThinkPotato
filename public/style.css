@@ -1,5 +1,4 @@
 /* Fix user-agent */
-
 * {
   box-sizing: border-box;
 }
@@ -32,12 +31,12 @@ ul {
 }
 
 /* Pages */
-
 .pages {
   height: 100%;
   margin: 0;
   padding: 0;
   width: 100%;
+  text-align: center;
 }
 
 .page {
@@ -47,9 +46,9 @@ ul {
 }
 
 /* Login Page */
-
 .login.page {
   background-color: #000;
+  opacity: 0.8;
 }
 
 .login.page .form {
@@ -89,16 +88,15 @@ ul {
 /* Canvas page*/
 .canvas .page {
   display: none;
+  position: absolute;
 }
 
 /* Chat page */
-
 .chat.page {
   display: none;
 }
 
 /* Font */
-
 .messages {
   font-size: 150%;
 }
@@ -115,7 +113,6 @@ ul {
 }
 
 /* Messages */
-
 .chatArea {
   height: 100%;
   padding-bottom: 60px;
@@ -140,7 +137,6 @@ ul {
 }
 
 /* Input */
-
 .inputMessage {
   border: 10px solid #000;
   bottom: 0;

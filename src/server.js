@@ -35,7 +35,7 @@ socket.on('connection', (socket) => {
             socket.emit('login', {
                 numUsers: numUsers
             });
-            console.log(`> Player connected: ${playerId}`)
+            console.log(`> Player connected: ${playerId} ${username}`)
         
             game.addPlayer({ playerId: playerId, playerName: username })
         }
