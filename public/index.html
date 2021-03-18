@@ -11,6 +11,12 @@
                 image-rendering: -moz-crisp-edges;
                 width: 400px;
                 height: 400px;
+                margin-bottom: 20px;
+                margin-left: 20px;
+                margin-right: 20px;
+                margin-top: 20px;
+                display: inline-block;
+                vertical-align: top;
             }
         </style>
         <script src="/socket.io/socket.io.js"></script>
@@ -24,7 +30,8 @@
             <li class="login page">
                 <div class="form">
                     <h3 class="title">Nickname?</h3>
-                    <input type="text" class="usernameInput" maxlength="14"/>
+                    <input type="text" class="usernameInput" maxlength="14" placeholder="Type here..."/>
+                    <button type="button"id="btnUsernameInput">Ok</button>
                 </div>
             </li>
         </ul>
@@ -36,9 +43,33 @@
             
             const game = createGame()
             const keyboardListener = createKeyboardListener(document)
-            
 
             const socket = io()
+            let connected
+
+            //Login
+            const loginBtn = document.querySelector('#btnUsernameInput')
+            function gameLogin() {
+                const [$usernameInput] = document.getElementsByClassName('usernameInput')
+
+                const [$loginPage] = document.getElementsByClassName('login page')
+                const [$canvasPage] = document.getElementsByClassName('canvas page')
+                // Prompt for setting a username
+                let username
+                connected = false
+                username = $usernameInput.value
+                // If the username is valid
+                if (username) {
+                    $loginPage.hidden = true
+                    $canvasPage.hidden = false
+                    loginBtn.removeEventListener('click', gameLogin) //remove bind on element
+                    socket.emit('add user', username)
+                }
+            }
+            /*When use <script type="module">, a separate scope is created to prevent name collisions.
+                So onclick wont work unless function is global or 
+                we add addEventListener to bind handler*/
+            loginBtn.addEventListener('click', gameLogin)
 
             socket.on('connect', () => {
                 const playerId = socket.id
@@ -88,6 +119,7 @@
                 console.log(`Receiving ${command.type} -> ${command.fruitId}`)
                 game.removeFruit(command)
             })
+
         </script>
     </body>
 </html>
