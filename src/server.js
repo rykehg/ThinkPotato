@@ -1,9 +1,7 @@
 //import express from 'express'
 import http from 'http'
-//import socketio from 'socket.io'
-import createGame from '../public/shared/fruitGame.js'
 import app from '../src/app.js'
-import sockett from '../src/socketio.js'
+import fruitGame from './controllers/fruitGameController.js'
 
 //const app = require('../src/app.js')
 //app = express()
@@ -12,11 +10,11 @@ const server = http.createServer(app)
 
 //app.use(express.static('public'))
 
-const game = createGame()
+//const game = createGame()
 
 //let numUsers = 0;
 
-sockett(server, game)
+fruitGame(server)
 
 /*
 socket.on('connection', (socket) => {

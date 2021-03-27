@@ -1,15 +1,15 @@
 import socketio from 'socket.io'
 
 let numUsers = 0;
+let isGameStarted = false
 
 export default (http, game) => {
   const socket = socketio(http);
 
-
-    game.subscribe((command) => {
-        console.log(`> Emitting ${command.type}`)
-        socket.emit(command.type, command)
-    })
+  game.subscribe((command) => {
+    console.log(`> Emitting ${command.type}`)
+    socket.emit(command.type, command)
+  }) 
 
     socket.on('connection', (socket) => {
         let addedUser = false
@@ -31,7 +31,8 @@ export default (http, game) => {
             
                 game.addPlayer({ playerId: playerId, playerName: username })
             }
-            if (numUsers === 1){
+            if (numUsers === 1 && !isGameStarted){
+                isGameStarted = true
                 game.start()
             }
             // echo globally (all clients) that a person has connected
