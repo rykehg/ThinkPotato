@@ -1,24 +1,22 @@
-import express from 'express'
+//import express from 'express'
 import http from 'http'
-import createGame from '../public/game.js'
-import socketio from 'socket.io'
+import app from '../src/app.js'
+import fruitGame from './controllers/fruitGameController.js'
 
-const app = express()
+//const app = require('../src/app.js')
+//app = express()
 const server = http.createServer(app)
-const socket = socketio(server)
+//const socket = socketio(server)
 
-app.use(express.static('public'))
+//app.use(express.static('public'))
 
-const game = createGame()
-game.start()
+//const game = createGame()
 
-game.subscribe((command) => {
-    console.log(`> Emitting ${command.type}`)
-    socket.emit(command.type, command)
-})
+//let numUsers = 0;
 
-let numUsers = 0;
+fruitGame(server)
 
+/*
 socket.on('connection', (socket) => {
     let addedUser = false;
     
@@ -59,7 +57,7 @@ socket.on('connection', (socket) => {
         
         game.movePlayer(command)
     })
-})
+})*/
 
 server.listen(process.env.PORT || 3333, () => {
     console.log(`> Server listening on port: 3333`)
