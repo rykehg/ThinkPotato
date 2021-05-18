@@ -33,7 +33,7 @@ export default (http, game) => {
             }
             if (numUsers === 1 && !isGameStarted){
                 isGameStarted = true
-                game.start()
+                //game.start() //Descomentar para iniciar jogo
             }
             // echo globally (all clients) that a person has connected
             socket.broadcast.emit('user joined', {
