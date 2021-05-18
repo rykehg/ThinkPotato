@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Henrique Gaeta"
+		],
+		"last-updated": "2021-04-28",
+		"locale": "en",
+		"other-metadata": "sample json format"
+	},
+	"appname-title": "Javascript Localization via jQuery.i18n",
+	"appname-sub-title": "A jQuery based Javascript internationalization library.",
+	"appname-introduction": "Introduction",
+	"forgot-password": "Olvide mi contraseña",
+	"welcome": "Sea bienvenido"
+}
