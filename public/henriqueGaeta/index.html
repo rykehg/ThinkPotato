@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="Henrique H Gaeta">
-  <title>Welcome to my world!</title>
+  <title>Henrique Gaeta website</title>
 
     <!-- Custom fonts -->
     <link href="../style/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -27,39 +27,105 @@
     </head>
 <body>
   <!-- Top bar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Navbar</a>
+  <nav class="navbar navbar-expand-sm bg-light">
+    <a class="navbar-brand" href="./index.html">
+      <i class="fas fa-home fa-2x"></i>
+    </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
       <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-        </li>
         <div class="media">
           <img src="../img/henrique-photo.png" class="mr-3" alt="Henrique Gaeta" width="50px">
           <div class="media-body">
-            <h5 class="mt-0">Henrique H Gaeta</h5>
-            <p>Algo sobre mim</p>
+            <h5 class="mt-0 mb-0">Henrique H Gaeta</h5>
+            <span>Desenvolvedor</span>
           </div>
         </div>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link" href="#">Pricing</a>
-        </li>
+        </li> -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Dropdown link
+            <!-- <i class="fas fa-caret-square-down fa-2x"></i> -->
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
+            <a class="dropdown-item" href="#">Sobre mim</a>
+            <a class="dropdown-item" href="#">Linkedin</a>
+            <a class="dropdown-item" href="#">Github</a>
+            <a class="dropdown-item" href="#">Contato</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown mx-3">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownLocation" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span>Idioma</span>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownLocation">
+            <span class="dropdown-item" id="locationPT">Português</span>
+            <span class="dropdown-item" id="locationEn">English</span>
           </div>
         </li>
       </ul>
     </div>
   </nav>
   <!-- /Top bar -->
+
+  <div class="row justify-content-center m-4">
+    <div class="col-md-6 col-10 text-center">
+      <p>
+        <button class="btn btn-outline-primary rounded-pill w-75" type="button" data-toggle="collapse" data-target="#collapseAbout" aria-expanded="false" aria-controls="collapseAbout">
+          <i class="fas fa-address-card"></i>
+          <span>Sobre mim</span>
+        </button>
+      </p>
+      <div class="collapse text-justify" id="collapseAbout">
+        <div class="card card-body">
+          <p>Hi my name is Henrique and for 10 years I dedicated myself to learn and teach science and biology, 
+            one of my many passions. By doing so I was fortunate enough to work with amazing people in different 
+            universities and places.
+          </p> 
+          <p>As I have always been an ​​technology enthusiast I started working with molecular and chemistry biology 
+            using data analysis and statistics as a tool, so I was already working with Information Technology (IT) 
+            without realising that.
+          </p>
+          <p>In 2018, while facing big challenges, chasing new dreams and having some spare time, I finally decided 
+            to start my new career in IT. So to pursue that dream, in that same year, I started to take Systems Analysis 
+            and Development course in Fatec (a technology college in the state of São Paulo, Brazil) and in the beginning 
+            of 2019 I started working in IT.
+          </p>
+          <p>As an IT intern I had a big opportunity to work with a great team and learn a lot about SQL Server, 
+            C#, ASP.NET Core MVC, JavaScript, Html, CSS and Azure Cloud services. As a result, today I work as a 
+            self-employed junior software developer, building web applications, improving and bug fixing implemented 
+            services for the company I first started as an intern (SG - Car Rental Services) and some other business.
+          </p>
+          <p>Therefore, I also develop a few other projects in Python, NodeJs, React and React Native for personal 
+            use and tests. In short, I am still learning a lot from my work colleagues and small online courses and I 
+            am happy with this new career and looking for new challenges in this amazing area.
+          </p>
+        </div>
+      </div>
+      <p>
+        <a class="btn btn-outline-primary rounded-pill w-75" href="https://www.linkedin.com/in/henrique-gaeta-47929b71/" target="_blank">
+          <i class="fab fa-linkedin"></i>
+          Linkedin
+        </a>
+      </p>
+      <p>
+        <a class="btn btn-outline-primary rounded-pill w-75" href="https://github.com/rykehg" target="_blank">
+          <i class="fab fa-github"></i>
+          Github
+        </a>
+      </p>
+      <p>
+        <a class="btn btn-outline-primary rounded-pill w-75" href="mailto:henriquehg@gmail.com">
+          <i class="far fa-envelope"></i>
+          Contato
+        </a>
+      </p>
+    </div>
+  </div>
+
+
 </body>
 </html>
