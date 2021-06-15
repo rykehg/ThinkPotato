@@ -1,0 +1,291 @@
+@import url(https://fonts.googleapis.com/css?family=Signika:700,300,600);
+
+h1 {
+ font-size:5em;
+ font:bold 7.5vw/1.6 'Signika', sans-serif;
+ user-select:none;
+}
+
+h1 span { display:inline-block; animation:float .2s ease-in-out infinite; }
+ @keyframes float {
+  0%,100%{ transform:none; }
+  33%{ transform:translateY(-1px) rotate(-2deg); }
+  66%{ transform:translateY(1px) rotate(2deg); }
+}
+body:hover span { animation:bounce .6s; }
+@keyframes bounce {
+  0%,100%{ transform:translate(0); }
+  25%{ transform:rotateX(20deg) translateY(2px) rotate(-3deg); }
+  50%{ transform:translateY(-20px) rotate(3deg) scale(1.1);  }
+}
+
+h1 span:nth-child(4n) { color:hsl(50, 75%, 55%); text-shadow:1px 1px hsl(50, 75%, 45%), 2px 2px hsl(50, 45%, 45%), 3px 3px hsl(50, 45%, 45%), 4px 4px hsl(50, 75%, 45%); }
+h1 span:nth-child(4n-1) { color:hsl(135, 35%, 55%); text-shadow:1px 1px hsl(135, 35%, 45%), 2px 2px hsl(135, 35%, 45%), 3px 3px hsl(135, 35%, 45%), 4px 4px hsl(135, 35%, 45%); }
+h1 span:nth-child(4n-2) { color:hsl(155, 35%, 60%); text-shadow:1px 1px hsl(155, 25%, 50%), 2px 2px hsl(155, 25%, 50%), 3px 3px hsl(155, 25%, 50%), 4px 4px hsl(140, 25%, 50%); }
+h1 span:nth-child(4n-3) { color:hsl(30, 65%, 60%); text-shadow:1px 1px hsl(30, 45%, 50%), 2px 2px hsl(30, 45%, 50%), 3px 3px hsl(30, 45%, 50%), 4px 4px hsl(30, 45%, 50%); }
+
+h1 span:nth-child(2){ animation-delay:.05s; }
+h1 span:nth-child(3){ animation-delay:.1s; }
+h1 span:nth-child(4){ animation-delay:.15s; }
+h1 span:nth-child(5){ animation-delay:.2s; }
+h1 span:nth-child(6){ animation-delay:.25s; }
+h1 span:nth-child(7){ animation-delay:.3s; }
+h1 span:nth-child(8){ animation-delay:.35s; }
+h1 span:nth-child(9){ animation-delay:.4s; }
+h1 span:nth-child(10){ animation-delay:.45s; }
+h1 span:nth-child(11){ animation-delay:.5s; }
+h1 span:nth-child(12){ animation-delay:.55s; }
+h1 span:nth-child(13){ animation-delay:.6s; }
+h1 span:nth-child(14){ animation-delay:.65s; }
+
+:root {
+  --roxo: #6b5b95;
+  --amarelo: #fadd3c;
+  --rosa: #d64161;
+  --laranja: #ffab2f;
+  --branco: #fff;
+  --branco-leve: #d8d8d8;
+}
+
+.btn-outline-primary {
+  background-color: #6b5b95b4;
+  color: #fff;
+  border-color: #fff;
+}
+
+.btn-outline-primary:active {
+  background-color: white;
+  color: var(--roxo);
+  border-color: #fff;
+}
+
+.btn-outline-primary:hover {
+  background-color: white;
+  color: var(--roxo);
+  border-color: #fff;
+}
+
+.btn-outline-primary:focus {
+  background-color: white;
+  color: var(--roxo);
+  border-color: #fff;
+  box-shadow: 0 0 0 .2rem rgba(214, 214, 214, 0.5)
+}
+
+.btn-outline-primary:not(:disabled):not(.disabled):active,
+.btn-outline-primary:not(:disabled):not(.disabled).active,
+.show>.btn-outline-primary.dropdown-toggle {
+  color: var(--roxo);
+  background-color: #ffefe6;
+  border-color: #fceae0;
+}
+
+.btn-outline-primary:not(:disabled):not(.disabled):active:focus,
+.btn-outline-primary:not(:disabled):not(.disabled).active:focus,
+.show>.btn-outline-primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(214, 214, 214, 0.5);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.wrapper {
+  display: grid;
+  background-color: #fff;
+  height: 90vh;
+  width: 80%;
+  margin: 50px auto;
+  grid-gap: 5px;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+}
+
+.box {
+  background-color: #666;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.box.one {
+  grid-column: span 3;
+  grid-row: span 3;
+  background-image: url(../img/bruna/fotos/juntos01.jpg);
+}
+
+.box.two {
+  grid-column: span 2;
+  grid-row: span 2;
+  background-image: url(../img/bruna/fotos/juntos02.jpg);
+}
+
+.box.three {
+  grid-column: 1 / span 2;
+  grid-row: 4/ span 3;
+  background-image: url(../img/bruna/fotos/juntos03.jpg);
+}
+
+.box.four {
+  grid-column: 3 / span 1;
+  grid-row: 4 / span 1;
+  background-image: url(../img/bruna/fotos/juntos04.jpg);
+}
+
+.box.five {
+  grid-column: span 2;
+  grid-row: span 2;
+  background-image: url(../img/bruna/fotos/juntos05.jpg);
+}
+
+.box.six {
+  grid-column: span 3;
+  grid-row: span 2;
+  background-image: url(../img/bruna/fotos/juntos06.jpg);
+}
+
+.box.seven {
+  grid-column: span 3;
+  grid-row: span 3;
+  background-image: url(../img/bruna/fotos/juntos07.jpg);
+}
+
+.box.eight {
+  grid-column: span 2;
+  grid-row: span 2;
+  background-image: url(../img/bruna/fotos/juntos08.jpg);
+}
+
+.box.nine {
+  grid-column: 1 / span 2;
+  grid-row: 4/ span 3;
+  background-image: url(../img/bruna/fotos/juntos09.jpg);
+}
+
+.box.ten {
+  grid-column: 3 / span 1;
+  grid-row: 4 / span 1;
+  background-image: url(../img/bruna/fotos/juntos10.jpg);
+}
+
+.box.eleven {
+  grid-column: span 2;
+  grid-row: span 2;
+  background-image: url(../img/bruna/fotos/juntos11.jpg);
+}
+
+.box.twelve{
+  grid-column: span 3;
+  grid-row: span 2;
+  background-image: url(../img/bruna/fotos/juntos12.jpg);
+}
+
+.box.thirteen {
+  grid-column: span 3;
+  grid-row: span 3;
+  background-image: url(../img/bruna/fotos/juntos13.jpg);
+}
+
+.box.fourteen {
+  grid-column: span 2;
+  grid-row: span 2;
+  background-image: url(../img/bruna/fotos/juntos14.jpg);
+}
+
+.box.fifteen {
+  grid-column: 1 / span 2;
+  grid-row: 4/ span 3;
+  background-image: url(../img/bruna/fotos/juntos15.jpg);
+}
+
+.box.sixteen {
+  grid-column: 3 / span 1;
+  grid-row: 4 / span 1;
+  background-image: url(../img/bruna/fotos/juntos16.jpg);
+}
+
+.box.seventeen {
+  grid-column: span 2;
+  grid-row: span 2;
+  background-image: url(../img/bruna/fotos/juntos17.jpg);
+}
+
+.box.eighteen {
+  grid-column: span 3;
+  grid-row: span 2;
+  background-image: url(../img/bruna/fotos/juntos18.jpg);
+}
+
+.box.nineteen {
+  grid-column: span 3;
+  grid-row: span 3;
+  background-image: url(../img/bruna/fotos/juntos19.jpg);
+}
+
+.box.twenty {
+  grid-column: span 2;
+  grid-row: span 2;
+  background-image: url(../img/bruna/fotos/juntos20.jpg);
+}
+
+.box.twentyone {
+  grid-column: 1 / span 2;
+  grid-row: 4/ span 3;
+  background-image: url(../img/bruna/fotos/juntos21.jpg);
+}
+
+.box.twentytwo {
+  grid-column: 3 / span 1;
+  grid-row: 4 / span 1;
+  background-image: url(../img/bruna/fotos/juntos22.jpg);
+}
+
+.box.twentythree {
+  grid-column: span 2;
+  grid-row: span 2;
+  background-image: url(../img/bruna/fotos/juntos23.jpg);
+}
+
+.box.twentyfour {
+  grid-column: span 3;
+  grid-row: span 2;
+  background-image: url(../img/bruna/fotos/juntos24.jpg);
+}
+
+.box.twentyfive {
+  grid-column: span 3;
+  grid-row: span 3;
+  background-image: url(../img/bruna/fotos/juntos25.jpg);
+}
+
+.box.twentysix {
+  grid-column: span 2;
+  grid-row: span 2;
+  background-image: url(../img/bruna/fotos/juntos26.jpg);
+}
+
+.box.twentyseven {
+  grid-column: 1 / span 2;
+  grid-row: 4/ span 3;
+  background-image: url(../img/bruna/fotos/juntos27.jpg);
+}
+
+.box.twentyeight {
+  grid-column: 3 / span 1;
+  grid-row: 4 / span 1;
+  background-image: url(../img/bruna/fotos/juntos28.jpg);
+}
+
+.box.twentynine {
+  grid-column: span 2;
+  grid-row: span 2;
+  background-image: url(../img/bruna/fotos/juntos29.jpg);
+}
+
+.box.thirty {
+  grid-column: span 3;
+  grid-row: span 2;
+  background-image: url(../img/bruna/fotos/juntos30.jpg);
+}
