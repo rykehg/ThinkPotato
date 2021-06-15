@@ -38,6 +38,10 @@ h1 span:nth-child(12){ animation-delay:.55s; }
 h1 span:nth-child(13){ animation-delay:.6s; }
 h1 span:nth-child(14){ animation-delay:.65s; }
 
+.bruna .card {
+  background-color: rgba(255, 255, 255, 0.733);
+}
+
 :root {
   --roxo: #6b5b95;
   --amarelo: #fadd3c;
