@@ -293,3 +293,38 @@ h1 span:nth-child(14){ animation-delay:.65s; }
   grid-row: span 2;
   background-image: url(../img/bruna/fotos/juntos30.jpg);
 }
+.box.thirtyone {
+  grid-column: span 3;
+  grid-row: span 3;
+  background-image: url(../img/bruna/fotos/juntos31.jpg);
+}
+
+.box.thirtytwo {
+  grid-column: span 2;
+  grid-row: span 2;
+  background-image: url(../img/bruna/fotos/juntos32.jpg);
+}
+
+.box.thirtythree {
+  grid-column: 1 / span 2;
+  grid-row: 4/ span 3;
+  background-image: url(../img/bruna/fotos/juntos33.jpg);
+}
+
+.box.thirtyfour {
+  grid-column: 3 / span 1;
+  grid-row: 4 / span 1;
+  background-image: url(../img/bruna/fotos/juntos36.jpg);
+}
+
+.box.thirtyfive {
+  grid-column: span 2;
+  grid-row: span 2;
+  background-image: url(../img/bruna/fotos/juntos35.jpg);
+}
+
+.box.thirtysix {
+  grid-column: span 3;
+  grid-row: span 2;
+  background-image: url(../img/bruna/fotos/juntos34.jpg);
+}
